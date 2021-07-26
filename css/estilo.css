@@ -1,0 +1,81 @@
+:root{
+    --logo-heigth: 100px;
+    --header-heigth: 100px;
+    --menu-top-heigth: 70px;
+    --aside-width: 200px;
+    --footer-heigth: 40px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.corpo{
+    margin: 0;
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: var(--header-heigth)
+    1fr 
+    var(--footer-heigth);
+    grid-template-areas: 
+    "logo header"
+    "menu conteudo"
+    "menu rodape";
+    height: 100vh;
+}
+
+.logo{
+    grid-area: logo;
+}
+
+.header{
+    grid-area: header;
+}
+
+.menu{
+    grid-area: menu;
+}
+
+.conteudo{
+    grid-area: conteudo;
+}
+
+.rodape{
+    grid-area: rodape;
+}
+
+@media(max-width: 768px) {
+    .corpo{
+        grid-template-rows: 
+            var(--header-heigth)
+            var(--menu-top-heigth)
+            1fr
+            var(--footer-heigth);
+        grid-template-columns: 
+            var(--aside-width)
+            1fr;
+        grid-template-areas: 
+        "logo header"
+        "menu menu"
+        "conteudo conteudo"
+        "rodape rodape";
+    }
+}
+
+@media(max-width: 576px){
+    .corpo{
+        grid-template-rows: 
+            var(--logo-heigth)
+            var(--header-heigth)
+            var(--menu-top-heigth)
+            1fr
+            var(--footer-heigth);
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "logo"
+            "header"
+            "menu"
+            "conteudo"
+            "rodape"
+    }
+}
